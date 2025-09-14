@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Habits - The World's Most Elegant Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">○</div>
+                    <h1 class="app-title">Zen Habits</h1>
+                </div>
+                <div class="header-controls">
+                    <button class="control-btn stats-btn" id="statsToggle" title="View Progress">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn theme-btn" id="themeToggle" title="Toggle Theme">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Add Habit Section -->
+            <section class="add-habit-section">
+                <div class="add-habit-card">
+                    <form class="add-habit-form" id="addHabitForm">
+                        <div class="form-group">
+                            <input type="text" id="habitName" placeholder="What habit would you like to build?" required>
+                        </div>
+                        <div class="form-row">
+                            <select id="habitCategory" class="category-select">
+                                <option value="health">Health & Wellness</option>
+                                <option value="learning">Learning</option>
+                                <option value="productivity">Productivity</option>
+                                <option value="mindfulness">Mindfulness</option>
+                                <option value="social">Social</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="color-picker">
+                                <input type="color" id="habitColor" value="#6366f1">
+                            </div>
+                            <button type="submit" class="add-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"/>
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Habits List -->
+            <section class="habits-section">
+                <div class="section-header">
+                    <h2 class="section-title">Today's Habits</h2>
+                    <div class="habits-filter">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="health">Health & Wellness</option>
+                            <option value="learning">Learning</option>
+                            <option value="productivity">Productivity</option>
+                            <option value="mindfulness">Mindfulness</option>
+                            <option value="social">Social</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="habits-list" id="habitsGrid">
+                    <!-- Habits will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Statistics Modal -->
+            <div class="modal" id="statsModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Your Progress</h2>
+                        <button class="close-btn" id="closeStats">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number" id="totalStreak">0</div>
+                                <div class="stat-label">Total Streak</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="completedToday">0</div>
+                                <div class="stat-label">Completed Today</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="totalHabits">0</div>
+                                <div class="stat-label">Total Habits</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="successRate">0%</div>
+                                <div class="stat-label">Success Rate</div>
+                            </div>
+                        </div>
+                        <div class="weekly-progress">
+                            <h3 class="chart-title">This Week</h3>
+                            <div class="week-chart" id="weekChart">
+                                <!-- Weekly progress chart will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
